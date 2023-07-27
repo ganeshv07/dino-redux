@@ -12,7 +12,7 @@ export default function Greetings(): JSX.Element {
         Electron boilerplate with TypeScript, React, and MUI
       </Typography>
       <Typography variant="body1" textAlign="center" sx={{ mt: 2 }}>
-        Made by HelloSoftware
+        Made by Nukkadshops
       </Typography>
     </Container>
   );
