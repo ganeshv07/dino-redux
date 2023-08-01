@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: src/renderer/utils/immutable-to-js.ts
+  checksum: 02494c190bb24d8da569847daf65fa0358a9450ce4ff051d1d0a68862523a9c4
+version: "1.0"

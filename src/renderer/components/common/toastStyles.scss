@@ -1,0 +1,57 @@
+/** Classes for the displayed toast **/
+.Toastify__toast {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+    border-radius: 10px;
+}
+.Toastify__toast--rtl {
+}
+.Toastify__toast--dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+}
+.Toastify__toast--default {
+    // color: #004085;
+    // background-color: #cce5ff;
+    // border-color: #b8daff;
+    color: #fff;
+    font-weight: 500;	
+    background-color: rgb(50, 50, 50);
+}
+.Toastify__toast--info {
+    // color: #0c5460;
+    // background-color: #d1ecf1;
+    // border-color: #bee5eb;
+    color: #fff;
+    font-weight: 500;
+    background-color: #2196f3;
+}
+.Toastify__toast--success {
+    // color: #155724;
+    // background-color: #d4edda;
+    // border-color: #c3e6cb;
+    color: #fff;
+    font-weight: 500;
+    background-color: #4caf50;
+}
+.Toastify__toast--warning {
+    // color: #856404;
+    // background-color: #fff3cd;
+    // border-color: #ffeeba;
+    color: #fff;
+    font-weight: 500;
+    background-color: #ff9800;
+}
+.Toastify__toast--error {
+    // color: #721c24;
+    // background-color: #f8d7da;
+    // border-color: #f5c6cb;
+    color: #fff;
+    font-weight: 500;
+    background-color: #f44336;
+}
+.Toastify__toast-body {
+    
+}

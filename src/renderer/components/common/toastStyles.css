@@ -1,0 +1,44 @@
+/** Classes for the displayed toast **/
+.Toastify__toast {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca;
+  border-radius: 10px;
+}
+
+.Toastify__toast--dark {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca;
+}
+
+.Toastify__toast--default {
+  color: #fff;
+  font-weight: 500;
+  background-color: #323232;
+}
+
+.Toastify__toast--info {
+  color: #fff;
+  font-weight: 500;
+  background-color: #2196f3;
+}
+
+.Toastify__toast--success {
+  color: #fff;
+  font-weight: 500;
+  background-color: #4caf50;
+}
+
+.Toastify__toast--warning {
+  color: #fff;
+  font-weight: 500;
+  background-color: #ff9800;
+}
+
+.Toastify__toast--error {
+  color: #fff;
+  font-weight: 500;
+  background-color: #f44336;
+}
+/*# sourceMappingURL=toastStyles.css.map */
