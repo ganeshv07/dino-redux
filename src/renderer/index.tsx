@@ -24,7 +24,7 @@ export function renderApp() {
             <AppStateProvider>
           <AppConsumer>
                { (context) => {
-                    {console.log('context',context)} return !context.isLoggedIn  ? 
+                     return context.isLoggedIn  ? 
                    <App /> 
                    :
                     <Routes>
