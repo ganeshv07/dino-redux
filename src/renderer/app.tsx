@@ -24,7 +24,6 @@ export default function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/" element={<Logout />} />
-
       </Routes>
     </div>
   );

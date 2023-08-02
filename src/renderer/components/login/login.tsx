@@ -1,24 +1,14 @@
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
-import React from "react";
-import theme from "../../theme";
-import Greetings from "../Greetings";
+import * as React from 'react';
 
-export default function Login(): JSX.Element {
-  return (
-    // Setup theme and css baseline for the Material-UI app
-    // https://mui.com/customization/theming/
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box
-        sx={{
-          backgroundColor: (theme) => theme.palette.background.default,
-        }}
-      >
-        <main>
-          {/* This is where your app content should go */}
-          <Greetings />
-        </main>
-      </Box>
-    </ThemeProvider>
-  );
+
+export default function Login() {
+ 
+
+    return (
+        <React.Fragment>
+            <div>
+                <h1>Login Module</h1>
+            </div>
+        </React.Fragment>
+    );
 }

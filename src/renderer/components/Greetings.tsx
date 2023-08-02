@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import electronLogo from "../../../static/react.svg";
+import electronLogo from "../assets/images/electron.svg";
 
 export default function Greetings(): JSX.Element {
   return (

@@ -1,4 +1,5 @@
 import * as path from "path";
+var webpack = require('webpack');
 import { Configuration } from "webpack";
 
 const rootPath = path.resolve(__dirname, "..");
@@ -29,6 +30,11 @@ const config: Configuration = {
     path: path.resolve(rootPath, "dist"),
     filename: "[name].js",
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      __DEV__: true,
+    })
+  ],
 };
 
 export default config;
