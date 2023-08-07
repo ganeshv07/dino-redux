@@ -13,5 +13,10 @@
       "noImplicitThis": true,
       "strictNullChecks": true,
       "allowSyntheticDefaultImports": true
-    }
+    },
+    "include": [
+      "./src/main",
+      "./src/renderer",
+      "./src/preload"
+    ]
   }

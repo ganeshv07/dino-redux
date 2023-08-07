@@ -15,6 +15,7 @@ const config: Configuration = {
     extensions: [".tsx", ".ts", ".js"],
     mainFields: ["main", "module", "browser"],
   },
+  mode: 'development',
   entry: path.resolve(rootPath, "src/renderer", "index.tsx"),
   target: "electron-renderer",
   devtool: "source-map",

@@ -9,6 +9,7 @@ const config: Configuration = {
     extensions: [".tsx", ".ts", ".js"],
   },
   devtool: "source-map",
+  mode: 'development',
   entry: path.resolve(rootPath, "src/main", "main.ts"),
   target: "electron-main",
   module: {
@@ -16,7 +17,7 @@ const config: Configuration = {
       {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
-        include: /src/,
+        // include: /src/,
         use: {
           loader: "ts-loader",
         },
