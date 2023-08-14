@@ -82,11 +82,19 @@ const useStyles = makeStyles((_theme) => createStyles({
     height:'50%',
     width:'80%'
   },
+  registrationRightContainer: {
+    height:'100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
   Input: {
+    height:30,
     color: '#3e3e45',
     fontSize: 14,
     fontFamily: "'PTSans-Regular', 'sans-serif'",
-    border: '1px solid #0054a5',
+    border: '1px solid #959595',
     width: '100%',
     borderRadius: 4,
     padding: 5,
@@ -97,6 +105,17 @@ const useStyles = makeStyles((_theme) => createStyles({
     color: '#f44335',
     paddingLeft: 12,
     fontFamily: 'PTSans-Bold'
+  },
+  verticalLines: {
+    borderWidth: '2px',
+    borderRight: '1px dashed #959595'
+  },
+  registrationForms: {
+    width: '70%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection:'column'
   },
   visibleHidden: {
     visibility: 'hidden'

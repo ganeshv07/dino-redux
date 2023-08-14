@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import { AppConsumer, AppStateProvider } from './providers/index';
 import Login from './components/login/login';
 import Registration from './components/registration/registration';
+import ForgotPassword from './components/forgotPassword/forgotPassword';
 import App from "./app";
 
 initReduxStore((err: any, state: any) => {
@@ -31,6 +32,7 @@ export function renderApp() {
                     <Routes>
                               <Route path="/" element={<Login/>} />
                               <Route path="/registration" element={<Registration/>}/>
+                              <Route path="/forgotpassword" element={<ForgotPassword/>}/>
                     </Routes>;
                 }
               }

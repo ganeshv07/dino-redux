@@ -1,14 +1,17 @@
 import * as React from "react";
 import { CssBaseline, Divider, Grid, Paper, Box, Typography } from "@material-ui/core";
+import Footer from '../common/footer';
 import { useFormContext } from "react-hook-form";
 import _ from "../../utils/lodash";
 import Button from "@mui/material/Button";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import StepConnector from "@mui/material/StepConnector";
 import { FormOne, FormTwo, FormThree } from "./registrationForms";
-
+import Strings from '../constants/strings';
 import useStyles from "./registrationStyles";
+import { useNavigate } from "react-router";
 
 let Login_bg = require("../../assets/images/login_bg.png");
 
@@ -21,6 +24,20 @@ const theme = {
 const getSteps = () => {
   return ["Login Info", "Restaurant Info", "Restaurant Address"];
 };
+
+const getStepTitle = (step:any) => {
+  switch (step) {
+    case 0:
+      return `${Strings.REGISTRATION.PLEASE_ENTER_YOUR_DETAILS}`;
+    case 1:
+      return `${Strings.REGISTRATION.PLEASE_ENTER_RESTAURANT_DETAILS}`;
+    case 2:
+      return `${Strings.REGISTRATION.PLEASE_ENTER_YOUR_RESTAURANT_ADDRESS}`;
+    default:
+      return "";
+  }
+
+}
 
 const getStepContent = (step:any, formContent:any) => {
   switch (step) {
@@ -39,6 +56,7 @@ const getStepContent = (step:any, formContent:any) => {
 
 export default function Registration(props: any) {
   const classes = useStyles(theme);
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = React.useState(0);
   const [compiledForm, setCompiledForm] = React.useState({});
   const steps = getSteps();
@@ -96,34 +114,27 @@ export default function Registration(props: any) {
       console.log("submit", form);
     }
   };
+  const handleComplete = () => {
+    navigate('/')
+  }
+
+
 
   return (
     <div>
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={6}
-          md={5}
-          className={`${classes.image} ${classes.flexLines}`}
-        >
+        <Grid item xs={false} sm={6} md={5} className={`${classes.image} ${classes.flexLines}`} >
           <img className={classes.login_bg} src={Login_bg} alt="Login_bg" />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={7}
-          className={`${classes.flexLines} ${classes.rightContainer}`}
-        >
+        <Grid item xs={12} sm={6} md={7} className={`${classes.flexLines} ${classes.rightContainer}`} >
           <Grid
             component={Paper}
-            elevation={3}
+            elevation={3}        
             className={`${classes.registrationContainer}`}
           >
-            <Grid item sm={4} md={4} className={`${classes.flexLines}`}>
-              <Stepper activeStep={activeStep} orientation="vertical">
+            <Grid item sm={4} md={4} className={`${classes.flexLines} ${classes.verticalLines}`}>
+              <Stepper activeStep={activeStep} orientation="vertical" >
                 {steps.map((label, index) => {
                   const stepProps = {};
                   const labelProps = {};
@@ -135,22 +146,24 @@ export default function Registration(props: any) {
                 })}
               </Stepper>
             </Grid>
-            <Grid item sm={8} md={8} className={`${classes.flexLines}`}>
-              {/* {console.log('activeStep',activeStep)} */}
-              <Box sx={{ mb: 2 }}>
-                <div>
+            <Grid item sm={8} md={8} >
+                <Box className={`${classes.registrationRightContainer}`}>
                   {activeStep === steps.length ? (
-                    <div>
-                      <>
-                        <Typography>Completed</Typography>
+                    <div className={`${classes.flexLines}`}>
+                        <Button onClick={handleComplete}>Completed</Button>
                         <Button onClick={handleReset}>Close</Button>
-                      </>
                     </div>
                   ) : (
-                    <div>
+                    <div className={`${classes.registrationForms}`}>
+                        <h2>
+                {Strings.REGISTRATION.WELCOME }
+            </h2>
+            <span>
+               {getStepTitle(activeStep)}
+            </span>
                       {getStepContent(activeStep, compiledForm)}
                       <div>
-                        <Button onClick={handleBack}>Back</Button>
+                      {activeStep !== 0 && <Button onClick={handleBack}> Back</Button>}
                         <Button
                           variant="contained"
                           color="primary"
@@ -161,11 +174,11 @@ export default function Registration(props: any) {
                       </div>
                     </div>
                   )}
-                </div>
-              </Box>
+                </Box>
             </Grid>
           </Grid>
         </Grid>
+        <Footer />
       </Grid>
     </div>
   );

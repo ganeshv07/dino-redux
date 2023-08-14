@@ -1,10 +1,18 @@
 fileignoreconfig:
+- filename: package-lock.json
+  checksum: 360b24f71a17ad70c29407c12d03a469df8fed15f02a5b19713fa438ffe52e0c
+- filename: src/renderer/components/constants/strings.tsx
+  checksum: 6cbddb98221258a0810a5d6c8745888bdee9fcb739d17ffb81fb6a7db6b6fddf
+- filename: src/renderer/components/forgotPassword/forgotPassword.tsx
+  checksum: c93e80f903fbd287cf9695f12898ddd65a971e46f41bcc495b70dad86c1bc061
 - filename: src/renderer/components/login/login.tsx
-  checksum: 3e3139c23315d1e9d23bf2051e1108d1fdeb99a82e787a53bd8d4d01425094ae
+  checksum: e4e422b7bab6673c9ea996e53a83905ffbec8ba760f4d0b1c7edabf189419be3
 - filename: src/renderer/components/registration/registration.tsx
   checksum: c49283db8c587ec3850a9cbae40e8507df98b16ba58d5f5e9129ad0ac1dfae70
 - filename: src/renderer/components/registration/registrationForms.tsx
   checksum: 79c89a90008191da92a6691bab16de177c0f3fd192a31c05e52408af025ae3fb
+- filename: src/renderer/index.tsx
+  checksum: ba17ac9ae194da6844b45e019a5d3b9651e0cf9a542a897a6e79b06b07b6e967
 - filename: src/renderer/utils/immutable-to-js.ts
   checksum: 02494c190bb24d8da569847daf65fa0358a9450ce4ff051d1d0a68862523a9c4
 version: "1.0"

@@ -23,6 +23,7 @@ const useStyles = makeStyles((_theme) => createStyles({
   },
   root: {
     height: '100vh',
+    position: 'relative',
     fontFamily: "'PTSans-Regular', 'sans-serif'",
     overflow: 'hidden'
   },
@@ -95,6 +96,7 @@ const useStyles = makeStyles((_theme) => createStyles({
   },
   Input: {
     color: '#3e3e45',
+    height: 30,
     fontSize: 14,
     fontFamily: "'PTSans-Regular', 'sans-serif'",
     border: '1px solid #0054a5',
@@ -108,6 +110,27 @@ const useStyles = makeStyles((_theme) => createStyles({
     color: '#f44335',
     paddingLeft: 12,
     fontFamily: 'PTSans-Bold'
+  },
+  submit: {
+    width: '-webkit-fill-available',
+    backgroundColor: '#fe5850',
+    color: '#ffffff',
+    fontSize: 14,
+    fontWeight: 900,
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    fontFamily: "'PTSans-Bold', 'sans-serif'",
+    padding: '10px',
+    '&:hover': {
+      background: '#004899'
+    }
+  },
+  loginBack: {
+    fontFamily: "'PTSans-Regular', 'sans-serif'",
+    fontSize: '14px',
+    color: '#7f7f7f',
+    cursor: 'pointer',
+    marginTop: '20%'
   },
   visibleHidden: {
     visibility: 'hidden'
