@@ -79,7 +79,7 @@ const useStyles = makeStyles((_theme) => createStyles({
   },
   registrationContainer: {
     display:'flex',
-    height:'50%',
+    minHeight: '50%',
     width:'80%'
   },
   registrationRightContainer: {
@@ -98,9 +98,10 @@ const useStyles = makeStyles((_theme) => createStyles({
     width: '100%',
     borderRadius: 4,
     padding: 5,
-    margin: '10px auto'
+    margin: '5px auto'
   },
   errorText: {
+    margin: '0px',
     padding: '4px',
     color: '#f44335',
     paddingLeft: 12,
@@ -116,6 +117,9 @@ const useStyles = makeStyles((_theme) => createStyles({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection:'column'
+  },
+  formFooter: {
+    padding: '10px',
   },
   visibleHidden: {
     visibility: 'hidden'

@@ -1,16 +1,24 @@
 fileignoreconfig:
 - filename: package-lock.json
-  checksum: 360b24f71a17ad70c29407c12d03a469df8fed15f02a5b19713fa438ffe52e0c
+  checksum: c2cb7e14556a96af231bb00a903caa96e5aa91ef5c3803c8bcc599a4adaaba76
+- filename: src/renderer/components/common/header.tsx
+  checksum: ed68bf708a1ba43e76209e7f0403066f3beedb36379c996435c06584922f9641
 - filename: src/renderer/components/constants/strings.tsx
-  checksum: 6cbddb98221258a0810a5d6c8745888bdee9fcb739d17ffb81fb6a7db6b6fddf
+  checksum: 65fe2b0e3a480b1bded4323fabc1068ae38c1131c7c4bd01abf88d3422003efd
+- filename: src/renderer/components/dashboard/averageBasketChart.tsx
+  checksum: 49e16fd1ca97c9dd7fb94536178f8049ee96f13d0b87888eb23adb155aaa45b8
+- filename: src/renderer/components/dashboard/historicalDataChart.tsx
+  checksum: d0f9da2e5b9cb9ac5429c0e10d1d4163aa1c0bcde9f174fb5cee6dd6f70d5d55
 - filename: src/renderer/components/forgotPassword/forgotPassword.tsx
   checksum: c93e80f903fbd287cf9695f12898ddd65a971e46f41bcc495b70dad86c1bc061
 - filename: src/renderer/components/login/login.tsx
   checksum: e4e422b7bab6673c9ea996e53a83905ffbec8ba760f4d0b1c7edabf189419be3
 - filename: src/renderer/components/registration/registration.tsx
-  checksum: c49283db8c587ec3850a9cbae40e8507df98b16ba58d5f5e9129ad0ac1dfae70
+  checksum: 6d8c48a07ac9ece82da564664c32acc055f1090eede9ea794b7ece16dc16d601
 - filename: src/renderer/components/registration/registrationForms.tsx
-  checksum: 79c89a90008191da92a6691bab16de177c0f3fd192a31c05e52408af025ae3fb
+  checksum: e012d5b86e3d6f064df7b4c65b7797b4c0fd3734a4c00bf8eb0ca859e1922e2c
+- filename: src/renderer/components/registration/validationSchema.tsx
+  checksum: b63b44cd5249ae56d9edf6e968694bb2d12c4735e286b4374babf2f060a9cbbb
 - filename: src/renderer/index.tsx
   checksum: ba17ac9ae194da6844b45e019a5d3b9651e0cf9a542a897a6e79b06b07b6e967
 - filename: src/renderer/utils/immutable-to-js.ts

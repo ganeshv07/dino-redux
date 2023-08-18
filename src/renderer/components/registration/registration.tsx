@@ -1,15 +1,29 @@
 import * as React from "react";
-import { CssBaseline, Divider, Grid, Paper, Box, Typography } from "@material-ui/core";
-import Footer from '../common/footer';
-import { useFormContext } from "react-hook-form";
+import {
+  CssBaseline,
+  Divider,
+  Grid,
+  Paper,
+  Box,
+  Typography,
+} from "@material-ui/core";
+import Footer from "../common/footer";
+import { useForm, FormProvider } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import _ from "../../utils/lodash";
 import Button from "@mui/material/Button";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import StepConnector from "@mui/material/StepConnector";
 import { FormOne, FormTwo, FormThree } from "./registrationForms";
-import Strings from '../constants/strings';
+import app_actions from '../../actions/index';
+import { store } from '../../store/index';
+import {
+  loginInfoSchema,
+  restaurantInfoSchema,
+  restaurantAddressSchema,
+} from "./validationSchema";
+import Strings from "../constants/strings";
 import useStyles from "./registrationStyles";
 import { useNavigate } from "react-router";
 
@@ -19,13 +33,11 @@ const theme = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
 };
 
-
-
 const getSteps = () => {
   return ["Login Info", "Restaurant Info", "Restaurant Address"];
 };
 
-const getStepTitle = (step:any) => {
+const getStepTitle = (step: any) => {
   switch (step) {
     case 0:
       return `${Strings.REGISTRATION.PLEASE_ENTER_YOUR_DETAILS}`;
@@ -36,15 +48,14 @@ const getStepTitle = (step:any) => {
     default:
       return "";
   }
+};
 
-}
-
-const getStepContent = (step:any, formContent:any) => {
+const getStepContent = (step: any) => {
   switch (step) {
     case 0:
-      return <FormOne  />;
+      return <FormOne />;
     case 1:
-      return <FormTwo  />;
+      return <FormTwo />;
     case 2:
       return <FormThree />;
     default:
@@ -52,41 +63,85 @@ const getStepContent = (step:any, formContent:any) => {
   }
 };
 
+const getValidationSchema = (step: any) => {
+  switch (step) {
+    case 0:
+      return loginInfoSchema;
+    case 1:
+      return restaurantInfoSchema;
+    case 2:
+      return restaurantAddressSchema;
+  }
+};
 
+// const schema = Yup.object().shape({
+//   ownername: Yup.string().required('Ower name is required'),
+//     mobilenumber: Yup.string().required('Mobile number is required'),
+//     username: Yup.string().required('Username is required'),
+//     password: Yup.string().required('Password is required'),
+//      restaurentname: Yup.string().required('Restaurent name is required'),
+//     restaurentgstin: Yup.string().required('Restaurent GSTIN is required'),
+//     restaurenttagline: Yup.string().required('Restaurent Tagline is required'),
+//     fssaino: Yup.string().required('FSSAI no is required'),
+//     landlineno: Yup.string().required('Land line no is required'),
+//     email: Yup.string().required('Email is required'),
+//     city: Yup.string().required('City is required'),
+//     address: Yup.string().required('Address is required'),
+// });
 
 export default function Registration(props: any) {
   const classes = useStyles(theme);
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [activeSchema, setActiveSchema] = React.useState(loginInfoSchema);
+
   const [compiledForm, setCompiledForm] = React.useState({});
   const steps = getSteps();
 
+  const schema = getValidationSchema(activeStep);
 
+  // const methods = useForm({
+  //   resolver: yupResolver(schema),
+  // });
 
-  const handleNext = () => {
-    let canContinue = true;
+  const methods = useForm({
+    resolver: yupResolver(activeSchema),
+    defaultValues: {
+      ownername: "",
+      mobilenumber: "",
+      username: "",
+      password: "",
+    },
+ 
+  });
 
-    switch (activeStep) {
-      case 0:
-        setCompiledForm({});
-        canContinue = true;
-        break;
-      case 1:
-        setCompiledForm({});
-        canContinue = true;
-        break;
-      case 2:
-        setCompiledForm({});
-        canContinue = true;
-        // handleSubmit({ ...compiledForm, three: form });
-        break;
-      default:
-        return "not a valid step";
-    }
-    if (canContinue) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  // restaurentname: "",
+  // restaurentgstin: "",
+  // restaurenttagline: "",
+  // fssaino: ""
+
+  const { handleSubmit, formState, getValues: any } = methods;
+
+  const onSubmit = (data: any) => {
+    let bb:any = restaurantInfoSchema;
+    let cc:any = restaurantAddressSchema;
+    if (activeStep === 0) {
+      // Final step, submit the form data
+     
+      setActiveSchema(bb);
+      setActiveStep(activeStep + 1);
+    } else if( activeStep === 1) {
+      setActiveSchema(cc);
+      setActiveStep(activeStep + 1);
+    }else if(activeStep === 2) {
+      console.log("Form data:", data);
+      store.dispatch(app_actions.user_actions.loginUserDetails(data));
+      navigate("/dashboard");
+    }else {
+      console.log('completed steps')
     }
   };
+
 
   const handleBack = () => {
     if (activeStep > 0) {
@@ -109,32 +164,42 @@ export default function Registration(props: any) {
     setCompiledForm({});
   };
 
-  const handleSubmit = (form:any) => {
-    if (_.isEmpty("b")) {
-      console.log("submit", form);
-    }
-  };
   const handleComplete = () => {
-    navigate('/')
-  }
-
-
+    navigate("/");
+  };
 
   return (
     <div>
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid item xs={false} sm={6} md={5} className={`${classes.image} ${classes.flexLines}`} >
+        <Grid
+          item
+          xs={false}
+          sm={6}
+          md={5}
+          className={`${classes.image} ${classes.flexLines}`}
+        >
           <img className={classes.login_bg} src={Login_bg} alt="Login_bg" />
         </Grid>
-        <Grid item xs={12} sm={6} md={7} className={`${classes.flexLines} ${classes.rightContainer}`} >
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={7}
+          className={`${classes.flexLines} ${classes.rightContainer}`}
+        >
           <Grid
             component={Paper}
-            elevation={3}        
+            elevation={3}
             className={`${classes.registrationContainer}`}
           >
-            <Grid item sm={4} md={4} className={`${classes.flexLines} ${classes.verticalLines}`}>
-              <Stepper activeStep={activeStep} orientation="vertical" >
+            <Grid
+              item
+              sm={4}
+              md={4}
+              className={`${classes.flexLines} ${classes.verticalLines}`}
+            >
+              <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((label, index) => {
                   const stepProps = {};
                   const labelProps = {};
@@ -146,35 +211,39 @@ export default function Registration(props: any) {
                 })}
               </Stepper>
             </Grid>
-            <Grid item sm={8} md={8} >
-                <Box className={`${classes.registrationRightContainer}`}>
-                  {activeStep === steps.length ? (
-                    <div className={`${classes.flexLines}`}>
-                        <Button onClick={handleComplete}>Completed</Button>
-                        <Button onClick={handleReset}>Close</Button>
+            <Grid item sm={8} md={8}>
+              <Box className={`${classes.registrationRightContainer}`}>
+                {activeStep === steps.length ? (
+                  <div className={`${classes.flexLines}`}>
+                    <Button onClick={handleComplete}>Completed</Button>
+                    <Button onClick={handleReset}>Close</Button>
+                  </div>
+                ) : (
+                  <FormProvider {...methods}>
+                  <form onSubmit={handleSubmit(onSubmit)} className={`${classes.registrationForms}`}>
+                  <div >
+                    <h2>{Strings.REGISTRATION.WELCOME}</h2>
+                    <p>{getStepTitle(activeStep)}</p>
+                  
+                        {getStepContent(activeStep)}
+                    
+                    <div className={`${classes.formFooter}`}>
+                      {activeStep !== 0 && (
+                        <Button onClick={handleBack}> Back</Button>
+                      )}
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                      </Button>
                     </div>
-                  ) : (
-                    <div className={`${classes.registrationForms}`}>
-                        <h2>
-                {Strings.REGISTRATION.WELCOME }
-            </h2>
-            <span>
-               {getStepTitle(activeStep)}
-            </span>
-                      {getStepContent(activeStep, compiledForm)}
-                      <div>
-                      {activeStep !== 0 && <Button onClick={handleBack}> Back</Button>}
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={handleNext}
-                        >
-                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                        </Button>
-                      </div>
-                    </div>
-                  )}
-                </Box>
+                  </div>
+                  </form>
+                  </FormProvider>
+                )}
+              </Box>
             </Grid>
           </Grid>
         </Grid>

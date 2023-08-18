@@ -14,7 +14,7 @@ const AppConsumer = appContext.Consumer;
 const AppStateProvider = (props:any) => {
 
     const hasUserLoggedIn = useSelector((state: any) => state.App.loginUserDetails || false);
-    const [isAuthenticated, updateAuthStatus] = React.useState(hasUserLoggedIn && hasUserLoggedIn.token ? true : false);
+    const [isAuthenticated, updateAuthStatus] = React.useState(hasUserLoggedIn && hasUserLoggedIn ? true : false);
 
     return (
         <AppProvider

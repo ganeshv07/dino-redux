@@ -48,7 +48,46 @@ const Strings = {
         FINALLY: 'FInally!',
         COMPLETE_LAST_STEP: 'Please enter details to complete last step.',
 
-    } 
+    } ,
+
+    HEADER: {
+        LOGOUT: 'Logout',
+        PROFILE: 'Profile',
+        DASHBOARD: 'Dashboard',
+        HOME: 'Home',
+        BILLING: 'Billing',
+        INVENTORY_MANAGEMENT: 'Inventory Management',
+        REPORTS: 'Reports',
+        ACCOUNTS: 'Accounts',
+        PROMOTIONS: 'Promotions',
+        SETTINGS: 'Settings',
+        CHANGE_PASSWORD: 'Change Password',
+        PATIENT_REGISTRATION: 'Patient Registration',
+        ORDER_HISTORY: 'Order History',
+        ETRF: 'ETRF',
+        E_TRF: 'e-TRF',
+        CAPTURE_E_TRF: 'Capture e-TRF',
+        E_TRF_HISTORY: 'e-TRF History',
+        RSR: 'Repeat Sample Request',
+        LMP_DATE: 'LMP Calculator',
+        PRICE_ENQUIRY: 'Price Enquiry',
+        VIEW_PROFILE: 'View Profile',
+        CENTER_DETAILS: 'Center Details',
+        VENDOR_LOGIN: 'Login to Logistics',
+        MIS_REPORT: 'MIS Report',
+        ERROR_LOGS: 'Error Logs',
+        REPORT_STATUS: 'Print Report / Invoice',
+        PRINT_INVOICE: 'Print Invoice',
+        ORDER_DOCUMENTS: 'Order Documents',
+        CHANGE_WAREHOUSE: 'Change Warehouse',
+        LAB_CODE: 'LabCode :',
+        WAREHOUSE_CODE: 'Warehouse Code :',
+        INVOICE_ACCOUNT: 'Invoice Account :',
+        REGISTRATION_TRENDS: 'Registration Trends'
+    
+      },
+
+
 };
 
 export default Strings;
