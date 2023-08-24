@@ -11,7 +11,10 @@ import Strings from '../constants/strings';
 import { useNavigate } from "react-router";
 import { useLocation } from 'react-router-dom';
 import useStyles from './sidebarStyles';
+const DinoLogo = require('../../assets/images/Dino.png');
 
+
+const newLocal = "pink";
 // let Logo = require('../../../assets/images/profile.png');
 
 export default function PermanentDrawerRight(props:any) {
@@ -138,21 +141,18 @@ export default function PermanentDrawerRight(props:any) {
                         onBackdropClick: closeSideBar
                     }}
                     id='ui__sidebar'
-                    // classes={classes.drawerPaper}
                     anchor='left'>
                     <Box
+                
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'space-between',
+                            justifyContent: 'center',
                             p: 2,
                             paddingBottom: 0
                         }}
                     >
-                        <AccountCircleIcon style={{ fontSize: '40px' }} />
-                        <Typography color='textPrimary' variant='h2'>
-                            {"Dino"}
-                        </Typography>
+                        <img src={DinoLogo} className={classes.dinoLogo} />
                         
                     </Box>
 
@@ -207,9 +207,7 @@ export default function PermanentDrawerRight(props:any) {
                                 <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-logout'}`}></Typography>
                                 <ListItemText primary='Logout' />
                             </ListItem>
-                            <ListItem style={{ paddingTop: 0, paddingBottom: 0 }}>
-                                <Typography className={classes.default}> app version {process.env.VERSION}</Typography>
-                            </ListItem>
+                           
                         </List>
                     </Box>
                    

@@ -66,7 +66,7 @@ export default function HistoricalDataChart(props: any) {
         <Box className={classes.chartBox}>
           <Box className={classes.ChartSubHeading}>
             <Typography component="span" className={classes.ChartLabelText}>
-              {"Historical Data Chart"}
+              {"Total Sales"}
             </Typography>
           </Box>
           <Grid

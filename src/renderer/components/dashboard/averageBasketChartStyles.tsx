@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         chartContainer: {
-            height: '92%',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -11,50 +11,37 @@ const useStyles = makeStyles((theme: Theme) =>
         chartBox: {
             // width: 700,
             // height: 400,
+            paddingRight:10,
+            width: '100%',
             position: 'relative',
             alignItems: 'center',
             justifyContent: 'center',
-            border: '3px solid #0054a5',
-            borderRadius: '5px',
+            border: '2px solid #f7f7f7',
+            borderRadius: '11px',
+            boxShadow: '4px 4px 5px 2px rgba(196, 190, 190, 0.5)',
+            backgroundColor: '#fff',
             '& .recharts-wrapper': {
                 position: 'unset',
                 '& .recharts-surface': {
-                    // viewBox:'0 0 450 190',
+                    viewBox: '0 0 440 240 !important',
                     // position: 'absolute',
                     // right: '40%',
                     // top: '-15%'
                 },
-                '& div.recharts-legend-wrapper': {
-                    right: '10%'
-                    // display: 'flex',
-                    // flexDirection: 'column',
-                    // alignItems: 'end',
-                    // justifyContent: 'end',
-                    // right: '10%',
-                    // bottom: '50%'
-                }
+               
             }
         },
         ChartSubHeading: {
-            padding: '15px'
+            padding: '8px',
+            textAlign: 'center'
         },
         ChartLabelText: {
-            fontSize: '18px',
-            fontFamily: 'PTSans-Bold'
+            fontSize: '24px',
+            fontWeight: 'bold',
+            fontFamily: 'Gotham',
+            color: '#fe5850'
         },
-        creditAmountText: {
-            color: '#0054a5',
-            fontSize: '20px',
-            fontFamily: 'PTSans-Bold'
-        },
-        ChartAmount: {
-            display: 'flex',
-            padding: '5px'
-        },
-   
-        yellowColor: {
-            color: '#F5B517'
-        },
+       
     })
 );
 

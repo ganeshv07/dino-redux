@@ -91,8 +91,8 @@ export default function Login(props: any) {
                           <Typography component={'div'} className={classes.loginBack} onClick={() => { handleForgetPassword(false); }}>{Strings.LOGIN.BACK_TO_LOGIN}</Typography>
                           :
                   <React.Fragment>
-                    <p>Don't have an Account ? <span className={classes.errorText} onClick={handleSignUp}>Sign Up</span></p>
-                    <p>Forgot Password ? <span className={classes.errorText} onClick={() => handleForgetPassword(true)}>Click Here</span></p>
+                    <p className={classes.footerText}>Don't have an Account ? <span className={classes.errorText} onClick={handleSignUp}>Sign Up</span></p>
+                    <p className={classes.footerText}>Forgot Password ? <span className={classes.errorText} onClick={() => handleForgetPassword(true)}>Click Here</span></p>
                   </React.Fragment>
                    }
                 </form>

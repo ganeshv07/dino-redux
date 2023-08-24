@@ -111,6 +111,9 @@ const useStyles = makeStyles((_theme) => createStyles({
     paddingLeft: 12,
     fontFamily: 'PTSans-Bold'
   },
+  footerText: {
+    margin : '4px !important'
+  },
   submit: {
     width: '-webkit-fill-available',
     backgroundColor: '#fe5850',

@@ -116,14 +116,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   navBar: {
     paddingRight: 0,
-    background: '#0054a5',
+    background: '#f7f7f7',
     '& .MuiIconButton-root': {
       padding: '3px 6px !important'
     }
   },
   logo: {
-    height: 57,
-    width: 218,
+    height: 50,
+    width: 157,
     cursor: 'pointer'
   },
   menuButton: {
@@ -248,7 +248,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
   },
   search: {
-    position: 'relative',
+    position: 'absolute',
+    left: '46%',
     width: 'auto',
     display: 'flex',
     '@media (max-width: 600px)': {

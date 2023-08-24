@@ -14,8 +14,10 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'relative',
             alignItems: 'center',
             justifyContent: 'center',
-            border: '3px solid #0054a5',
-            borderRadius: '5px',
+            border: '2px solid #f7f7f7',
+            borderRadius: '11px',
+            boxShadow: '4px 4px 5px 2px rgba(196, 190, 190, 0.5)',
+            backgroundColor: '#fff',
             '& .recharts-wrapper': {
                 position: 'unset',
                 '& .recharts-surface': {
@@ -36,11 +38,14 @@ const useStyles = makeStyles((theme: Theme) =>
             }
         },
         ChartSubHeading: {
-            padding: '15px'
+            padding: '8px',
+            textAlign: 'center'
         },
         ChartLabelText: {
-            fontSize: '18px',
-            fontFamily: 'PTSans-Bold'
+            fontSize: '24px',
+            fontWeight: 'bold',
+            fontFamily: 'Gotham',
+            color: '#fe5850'
         },
         creditAmountText: {
             color: '#0054a5',

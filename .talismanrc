@@ -6,13 +6,15 @@ fileignoreconfig:
 - filename: src/renderer/components/constants/strings.tsx
   checksum: 65fe2b0e3a480b1bded4323fabc1068ae38c1131c7c4bd01abf88d3422003efd
 - filename: src/renderer/components/dashboard/averageBasketChart.tsx
-  checksum: 49e16fd1ca97c9dd7fb94536178f8049ee96f13d0b87888eb23adb155aaa45b8
+  checksum: f6d3a1456dd122176f4c68fd3b6937c9fa27068710827b1afe2ed05aebd1241d
 - filename: src/renderer/components/dashboard/historicalDataChart.tsx
   checksum: d0f9da2e5b9cb9ac5429c0e10d1d4163aa1c0bcde9f174fb5cee6dd6f70d5d55
+- filename: src/renderer/components/dashboard/hotDeals.tsx
+  checksum: cf01063c57c6594c46c57dc0ac7e6476720ecf484557fcf2a0f9e200477aa7ee
 - filename: src/renderer/components/forgotPassword/forgotPassword.tsx
   checksum: c93e80f903fbd287cf9695f12898ddd65a971e46f41bcc495b70dad86c1bc061
 - filename: src/renderer/components/login/login.tsx
-  checksum: e4e422b7bab6673c9ea996e53a83905ffbec8ba760f4d0b1c7edabf189419be3
+  checksum: 489932989bfdf773610b9346902b5603b078347cce6fb6c1af5b5a4a7a2654ad
 - filename: src/renderer/components/registration/registration.tsx
   checksum: 6d8c48a07ac9ece82da564664c32acc055f1090eede9ea794b7ece16dc16d601
 - filename: src/renderer/components/registration/registrationForms.tsx

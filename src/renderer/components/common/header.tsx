@@ -17,6 +17,8 @@ import { AppConstants } from '../constants/appConstants';
 import { appContext } from '../../providers/index';
 import useStyles from './headerStyles';
 import Sidebar from './sidebar';
+const DinoLogo = require('../../assets/images/Dino.png');
+
 
 interface IChangePatientTypeAttribute {
   attributes?: IChangePatientTypeBody;
@@ -333,7 +335,7 @@ export default function Header(props:any) {
 
             </IconButton>
             <div className={`${classes.search} ${classes.centerItems}`}>
-              <img className={`${classes.logo}`} alt='logo' onClick={gotoHome} />
+              <img className={`${classes.logo}`} alt='logo' src={DinoLogo} onClick={gotoHome} />
               <Typography className={classes.default}>
                 {process.env.VERSION}
               </Typography>

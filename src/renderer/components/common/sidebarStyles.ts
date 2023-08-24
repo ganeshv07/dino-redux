@@ -5,20 +5,22 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme: Theme) => createStyles({
 
     root: {
-        display: 'flex'
+        display: 'flex',
+        backgroundColor: '#fff4f4'
     },
     active: {
         '& button': {
             color: '#0052a8'
         },
         '& .MuiTypography-body1': {
-            color: '#0052a8 !important'
+            color: '#FFFFFF !important'
         },
         '&.sidemenuIcon': {
             color: '#0052a8 !important'
         },
         '&.MuiListItem-root': {
-            borderLeft: '4px solid #0052a8'
+            borderLeft: '4px solid #0052a8',
+            backgroundColor: '#0054a5'
         }
     },
     transparent: {
@@ -29,8 +31,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
 
     navBar: {
-        height: 'calc(100vh - 83px)',
+        height: 'calc(100vh - 120px)',
         overflow: 'auto',
+        background: '#fff4f4',
         maxHeight: '700px',
         margin: '10px 0px',
         padding: '0px',
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
         '& .MuiTypography-body1': {
             fontFamily: 'PTSans-Regular',
-            color: '#686868',
+            color: '#0054a5',
             fontWeight: 'bold'
         },
         '& .MuiListItem-root': {
@@ -51,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                     color: '#0052a8'
                 },
                 '&.MuiTypography-body1': {
-                    color: '#0052a8'
+                    color: '#0054a5'
                 }
             }
         }
@@ -60,10 +63,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         width: drawerWidth,
         flexShrink: 0,
         // zIndex: 2,
-        background: '#f3f7ff',
+        background: '#fff4f4',
         // marginTop: 64,
         // height: 'calc(100vh - 64px)',
-        border: 0
+        border: 0,
+        '& .MuiDrawer-paper':{
+            background: '#fff4f4',
+        }
+    },
+    drawerPaper:{
+        backgroundColor: '#fff4f4',
+
+    },
+    dinoLogo: {
+        width: '75%'
+
     },
     // drawerPaper: {
     // },

@@ -33,6 +33,27 @@ const config: Configuration = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        //SCSS loader
+        test: /\.s[ac]ss$/i,
+        use: [
+            {
+                loader: 'style-loader'
+            },
+            {
+                loader: 'css-loader'
+            },
+            {
+                loader: 'sass-loader'
+            }
+        ]
+    },
+    {
+        // CSS loader
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+
+    },
     ],
   },
   devServer: {

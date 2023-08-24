@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { Cell,  Pie, PieChart } from 'recharts';
+import { Cell,  Pie, PieChart, ResponsiveContainer } from 'recharts';
 import useStyles from './inventoryChartStyles';
 
 export default function Inventory(props:any) {
@@ -14,9 +14,9 @@ export default function Inventory(props:any) {
   ];
   
 
-  useEffect(() => {
-    document.getElementsByClassName('recharts-surface')[0].setAttribute('viewBox', '100 25 440 240');
-  }, []);
+  // useEffect(() => {
+  //   document.getElementsByClassName('recharts-surface')[0].setAttribute('viewBox', '100 25 440 240');
+  // }, []);
 
   return (
     <React.Fragment>
@@ -31,40 +31,10 @@ export default function Inventory(props:any) {
               justifyContent='center'
               alignItems='center'
             >
-              <Grid item xs={4}>
-                <Grid container className={classes.ChartAmount}>
-                  <Grid item xs={3} sm={3}>
-                    <Typography component='span' className={classes.ChartLabelText}>{'1'}</Typography>
-                  </Grid>
-                  <Grid item xs={9} sm={9}>
-                    <Typography component='span' className={classes.yellowColor}>
-                     {'Available'}
-                    </Typography>
-                  </Grid>
-                </Grid>
-                <Grid container className={classes.ChartAmount}>
-                <Grid item xs={3} sm={3}>
-                    <Typography component='span' className={classes.ChartLabelText}>{'2'}</Typography>
-                  </Grid>
-                  <Grid item xs={9} sm={9}>
-                    <Typography component='span' className={classes.yellowColor}>
-                     {'Out of stock'}
-                    </Typography>
-                  </Grid>
-                </Grid>
-                <Grid container className={classes.ChartAmount}>
-                <Grid item xs={3} sm={3}>
-                    <Typography component='span' className={classes.ChartLabelText}>{'3'}</Typography>
-                  </Grid>
-                  <Grid item xs={9} sm={9}>
-                    <Typography component='span' className={classes.yellowColor}>
-                     {'Low inventory'}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={8}>
-                <PieChart height={250} width={500}>
+        
+              <Grid item xs={7}>
+              <ResponsiveContainer width="100%" height={250}>
+                <PieChart >
                   <Pie
                     startAngle={360}
                     endAngle={0}
@@ -75,12 +45,35 @@ export default function Inventory(props:any) {
                     blendStroke
                     isAnimationActive={true}
                   >
-                    <Cell fill='#F5B517' />
-                    <Cell fill='#eaeaea' />
-                    <Cell fill='#ddd' />
+                    <Cell fill='#930700' />
+                    <Cell fill='#fe5850' />
+                    <Cell fill='#fff4f4' />
                   </Pie>
                 </PieChart>
+                </ResponsiveContainer>
               </Grid>
+              <Grid item xs={5}>
+                <Grid container >
+                  <Grid item xs={12} sm={12} className={classes.ChartTitles}>
+                    <Box className={classes.ChartDineColor}>{'.'}</Box>
+                    <Typography component='span' className={classes.ChartTitle}>
+                     {'Dine in Sales'}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={12} className={classes.ChartTitles}>
+                    <Box className={classes.ChartTakeAwayColor}>{'.'}</Box>
+                    <Typography component='span' className={classes.ChartTitle}>
+                     {'Take away Sales'}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={12} className={classes.ChartTitles}>
+                    <Box className={classes.ChartDeliveriyColor}>{'.'}</Box>
+                    <Typography component='span' className={classes.ChartTitle}>
+                     {'Deliveriy in Sales'}
+                    </Typography>
+                  </Grid>
+                </Grid>
+                </Grid>
             </Grid>
           </Box>
         </Grid>

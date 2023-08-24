@@ -22,6 +22,27 @@ const config: Configuration = {
           loader: "ts-loader",
         },
       },
+      {
+        //SCSS loader
+        test: /\.s[ac]ss$/i,
+        use: [
+            {
+                loader: 'style-loader'
+            },
+            {
+                loader: 'css-loader'
+            },
+            {
+                loader: 'sass-loader'
+            }
+        ]
+    },
+    {
+        // CSS loader
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+
+    },
     ],
   },
   node: {
