@@ -28,6 +28,8 @@ import useStyles from "./registrationStyles";
 import { useNavigate } from "react-router";
 
 let Login_bg = require("../../assets/images/login_bg.png");
+const DinoLogo = require('../../assets/images/Dino.png');
+
 
 const theme = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -179,6 +181,7 @@ export default function Registration(props: any) {
           md={5}
           className={`${classes.image} ${classes.flexLines}`}
         >
+          <img  className={classes.dinoLogo} src={DinoLogo} />
           <img className={classes.login_bg} src={Login_bg} alt="Login_bg" />
         </Grid>
         <Grid
@@ -205,7 +208,7 @@ export default function Registration(props: any) {
                   const labelProps = {};
                   return (
                     <Step key={label} {...stepProps}>
-                      <StepLabel {...labelProps}>{label}</StepLabel>
+                      <StepLabel {...labelProps} className={classes.CustomStepLabel}>{label}</StepLabel>
                     </Step>
                   );
                 })}
@@ -220,13 +223,12 @@ export default function Registration(props: any) {
                   </div>
                 ) : (
                   <FormProvider {...methods}>
-                  <form onSubmit={handleSubmit(onSubmit)} className={`${classes.registrationForms}`}>
-                  <div >
+                    <Box className={classes.TitleContainer}>
                     <h2>{Strings.REGISTRATION.WELCOME}</h2>
                     <p>{getStepTitle(activeStep)}</p>
-                  
+                  </Box>
+                  <form onSubmit={handleSubmit(onSubmit)} className={`${classes.registrationForms}`}>
                         {getStepContent(activeStep)}
-                    
                     <div className={`${classes.formFooter}`}>
                       {activeStep !== 0 && (
                         <Button onClick={handleBack}> Back</Button>
@@ -239,7 +241,6 @@ export default function Registration(props: any) {
                         {activeStep === steps.length - 1 ? "Finish" : "Next"}
                       </Button>
                     </div>
-                  </div>
                   </form>
                   </FormProvider>
                 )}

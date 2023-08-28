@@ -40,6 +40,11 @@ const useStyles = makeStyles((_theme) => createStyles({
     height: '100vh',
     justifyContent: 'center'
   },
+  dinoLogo: {
+    position: 'absolute',
+    top: '50px',
+    left: '70px'
+  },
   logo: {
     height: 73,
     width: 280
@@ -52,6 +57,12 @@ const useStyles = makeStyles((_theme) => createStyles({
     backgroundColor: 'rgba(0,72,153,0.6)',
     '&:hover': {
       background: 'rgba(0,72,153,0.6)'
+    }
+  },
+  TitleContainer: {
+    paddingBottom: '15px',
+    '& h2':{
+      margin: 0
     }
   },
   TileConnect: {
@@ -79,33 +90,49 @@ const useStyles = makeStyles((_theme) => createStyles({
   },
   registrationContainer: {
     display:'flex',
-    minHeight: '50%',
+    minHeight: '40%',
     width:'80%'
   },
   registrationRightContainer: {
+    textAlign: 'center',
+    padding: '20px',
     height:'100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column'
 
   },
   Input: {
-    height:30,
+    height:40,
     color: '#3e3e45',
     fontSize: 14,
-    fontFamily: "'PTSans-Regular', 'sans-serif'",
+    fontFamily: "Gotham",
     border: '1px solid #959595',
     width: '100%',
     borderRadius: 4,
     padding: 5,
-    margin: '5px auto'
+    marginBottom: '10px'
   },
   errorText: {
+    fontSize: 12,
     margin: '0px',
-    padding: '4px',
     color: '#f44335',
-    paddingLeft: 12,
     fontFamily: 'PTSans-Bold'
+  },
+  CustomStepLabel: {
+  '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active': {
+    color: '#fe5850',
+  },
+  '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed': {
+    color: '#fe5850',
+  },
+  '& .css-1hv8oq8-MuiStepLabel-label.Mui-active': {
+    color: '#fe5850',
+  },
+  '& .css-1hv8oq8-MuiStepLabel-label.Mui-completed': {
+    color: '#fe5850',
+  }
   },
   verticalLines: {
     borderWidth: '2px',
@@ -114,7 +141,7 @@ const useStyles = makeStyles((_theme) => createStyles({
   registrationForms: {
     width: '70%',
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
     justifyContent: 'center',
     flexDirection:'column'
   },

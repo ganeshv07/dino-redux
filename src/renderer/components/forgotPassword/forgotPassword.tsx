@@ -9,6 +9,8 @@ import Strings from "../constants/strings";
 import { useNavigate } from "react-router-dom";
 
 let Login_bg = require("../../assets/images/login_bg.png");
+const DinoLogo = require('../../assets/images/Dino.png');
+
 
 const theme = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -52,6 +54,7 @@ export default function ForgotPassword(props: any) {
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={6} md={6} className={`${classes.image} ${classes.flexLines}`} >
+          <img  className={classes.dinoLogo} src={DinoLogo} />
           <img className={classes.login_bg} src={Login_bg} alt="Login_bg" />
         </Grid>
         <Grid item xs={12} sm={6} md={6} className={`${classes.flexLines} ${classes.rightContainer}`}
@@ -61,13 +64,15 @@ export default function ForgotPassword(props: any) {
             elevation={3}
             className={`${classes.forgotPasswordContainer}`}
           >
+            <Box className={classes.TitleContainer}>
             <h2>
               { isOtpVerified ? Strings.FORGOT_PASSWORD.FINALLY : Strings.FORGOT_PASSWORD.FEW_MORE_STEPS }
             </h2>
-            <span>
+            <p>
               { isOtpVerified ? Strings.FORGOT_PASSWORD.COMPLETE_LAST_STEP : Strings.FORGOT_PASSWORD.OTP_FOR_VERIFICATION }
-            </span>
-           { isOtpVerified ? <Box>
+            </p>
+            </Box>
+           { isOtpVerified ? <Box className={classes.changePasswordcontainer}>
             <form id='form' className={`${classes.changePasswordForm}`} onSubmit={handleSubmit(onSubmit)}>
             <input type="text" {...register("newpassword",{ required : true, maxLength: 10 })} className={classes.Input} placeholder=' new password' /> 
                     {errors.newpassword?.type === "required" && <FormHelperText className={classes.errorText} >new Password is required</FormHelperText>}

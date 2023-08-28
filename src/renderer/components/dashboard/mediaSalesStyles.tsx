@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: '8px'
         },
         tableLabelText: {
-            fontSize: '31px',
+            fontSize: '24px',
             fontWeight: 'bold',
             fontFamily: 'Gotham',
             color: '#fe5850'
@@ -29,12 +29,12 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'space-between',
         },
         tableItemLabelText : {
-            fontSize: '26px',
+            fontSize: '1.25rem',
             fontFamily: 'Gotham',
             color:' #0e4061'
         },
         tableItemPriceText : {
-            fontSize: '26px',
+            fontSize: '1.25rem',
             fontWeight: 'bold',
             fontFamily: 'Gotham',
             color: '#0e4061'

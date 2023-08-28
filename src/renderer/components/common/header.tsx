@@ -18,6 +18,7 @@ import { appContext } from '../../providers/index';
 import useStyles from './headerStyles';
 import Sidebar from './sidebar';
 const DinoLogo = require('../../assets/images/Dino.png');
+const NotificationIcon = require('../../assets/images/shape.svg');
 
 
 interface IChangePatientTypeAttribute {
@@ -344,6 +345,7 @@ export default function Header(props:any) {
             <div className={classes.grow} />
            
             <div className={classes.sectionDesktop}>
+              <img src={NotificationIcon} className={classes.notificationIcon} />
               <IconButton
                 edge='end'
                 aria-label='account of current user'

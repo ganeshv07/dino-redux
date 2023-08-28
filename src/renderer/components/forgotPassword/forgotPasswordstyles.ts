@@ -20,6 +20,11 @@ const useStyles = makeStyles((_theme) => createStyles({
     height: '100vh',
     justifyContent: 'center'
   },
+  dinoLogo: {
+    position: 'absolute',
+    top: '50px',
+    left: '70px'
+  },
   logo: {
     height: 73,
     width: 280
@@ -40,12 +45,19 @@ const useStyles = makeStyles((_theme) => createStyles({
     backgroundColor:'#fff4f4'
   },
   forgotPasswordContainer: {
-    height:'50%',
+    padding: '20px',
+    minHeight:'30%',
     width:'80%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column'
+  },
+  TitleContainer: {
+    paddingBottom: '20px',
+    '& h2':{
+      margin: 0
+    }
   },
  
   errorText: {
@@ -56,7 +68,8 @@ const useStyles = makeStyles((_theme) => createStyles({
   },
   submit: {
     width: '-webkit-fill-available',
-    margin: '15px 8px 25px 8px',
+    marginTop: '20px',
+    marginBottom: '20px',
     backgroundColor: '#fe5850',
     color: '#ffffff',
     fontSize: 14,
@@ -165,6 +178,10 @@ uploadButton: {
       color: '#242424',
       outline: 'none'
     }
+  },
+
+  changePasswordcontainer: {
+    width: '60%',
   },
 
   changePasswordForm: {

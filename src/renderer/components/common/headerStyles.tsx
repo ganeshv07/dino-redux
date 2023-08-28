@@ -70,6 +70,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   flexColumn: {
     flexDirection: 'column'
   },
+  notificationIcon: {
+    color: '#0e4061',
+    marginRight: '15px',
+  },
+
   logoutIcon: {
     color: '#fff',
     fontSize: '18px',
@@ -118,7 +123,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     paddingRight: 0,
     background: '#f7f7f7',
     '& .MuiIconButton-root': {
-      padding: '3px 6px !important'
+      padding: '3px 6px !important',
+      color: '#0e4061',
     }
   },
   logo: {

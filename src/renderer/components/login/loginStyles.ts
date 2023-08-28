@@ -45,6 +45,12 @@ const useStyles = makeStyles((_theme) => createStyles({
     height: 73,
     width: 280
   },
+  dinoLogo: {
+    position: 'absolute',
+    top: '50px',
+    left: '70px'
+  },
+  
   login_bg: {
     height: '50%',
     width: '90%'
@@ -80,20 +86,52 @@ const useStyles = makeStyles((_theme) => createStyles({
     backgroundColor:'#fff4f4'
   },
   signinContainer: {
-    height:'50%',
+    padding: '30px',
+    minHeight:'40%',
     width:'80%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column'
   },
+  TitleContainer: {
+    paddingBottom: '20px',
+    '& h2':{
+      margin: 0
+    }
+  },
   signinForm: {
-    width:'50%',
+    width:'60%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection:'column'
   },
+  TextInput: {
+    '&.MuiTextField-root': {
+      width: '100%',
+      margin: '10px',
+    },
+    '& .MuiOutlinedInput-root .MuiOutlinedInput-input': {
+      height: '1em',
+    }
+  },
+  PasswordInput: {
+    '&.MuiTextField-root': {
+      width: '100%',
+      margin: '10px',
+    },
+    '& .MuiOutlinedInput-root .MuiOutlinedInput-input': {
+      height: '1em',
+    }
+
+  },
+  customInputLabel: {
+    "& legend": {
+      visibility: "visible"
+    }
+  },
+
   Input: {
     color: '#3e3e45',
     height: 30,
@@ -117,6 +155,8 @@ const useStyles = makeStyles((_theme) => createStyles({
   submit: {
     width: '-webkit-fill-available',
     backgroundColor: '#fe5850',
+    marginTop: '20px',
+    marginBottom: '20px',
     color: '#ffffff',
     fontSize: 14,
     fontWeight: 900,
@@ -133,7 +173,7 @@ const useStyles = makeStyles((_theme) => createStyles({
     fontSize: '14px',
     color: '#7f7f7f',
     cursor: 'pointer',
-    marginTop: '20%'
+    marginTop: '8%'
   },
   visibleHidden: {
     visibility: 'hidden'
