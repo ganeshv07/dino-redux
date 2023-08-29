@@ -1,13 +1,5 @@
 import * as React from "react";
-import {
-  CssBaseline,
-  FormHelperText,
-  Grid,
-  Paper,
-  Button,
-  Typography,
-  Box
-} from "@material-ui/core";
+import { CssBaseline, FormHelperText, Grid, Paper, Button, Typography, Box } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import useStyles from "./loginStyles";
 import Footer from "../common/footer";
@@ -18,6 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import app_actions from '../../actions/index';
+import { store } from '../../store/index';
 
 let Login_bg = require("../../assets/images/login_bg.png");
 const DinoLogo = require("../../assets/images/Dino.png");
@@ -31,23 +25,18 @@ export default function Login(props: any) {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register,reset, handleSubmit, control, watch, formState: { errors }, } = useForm();
   const [isForgetPassword, setForgetPasswordStatus] = React.useState(false);
 
   const onSubmit = (data: any) => {
     console.log(data);
-  };
-  const initialState = {
-    username: "",
-    password: "",
-    userCaptcha: "",
-    showPassword: false,
+    if(isForgetPassword){
+      navigate("/forgotpassword");
+    }else{
+      store.dispatch(app_actions.user_actions.loginUserDetails(data));
+      navigate("/dashboard");
+    }
+    
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -65,6 +54,7 @@ export default function Login(props: any) {
     // setErrorMsg('');
     // setForgotPasswordMessage('');
     setForgetPasswordStatus(isForget);
+    reset();
     // state.username = '';
     // state.password = '';
     // state.userCaptcha = '';
@@ -148,7 +138,7 @@ export default function Login(props: any) {
               {/* <input type="text" {...register("username",{ required : true})} className={classes.Input} placeholder='username' /> */}
               {errors.username?.type === "required" && (
                 <FormHelperText className={classes.errorText}>
-                  Mobile Number is required
+                  User Name is required
                 </FormHelperText>
               )}
              {isForgetPassword ? null : (  <Controller
@@ -160,7 +150,7 @@ export default function Login(props: any) {
                   <TextField
                     {...field}
                     id="outlined-adornment-password"
-                    className={classes.TextInput}
+                    className={classes.PasswordInput}
                     error={!!errors.password}
                     type={showPassword ? 'text' : 'password'}
                     required={true}
@@ -169,12 +159,13 @@ export default function Login(props: any) {
                        endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
+                            className={classes.passwordIcon}
                             aria-label="toggle password visibility"
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
                             edge="end"
                           >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                            {showPassword ? <VisibilityOff className={classes.passwordIcon} /> : <Visibility className={classes.passwordIcon}/>}
                           </IconButton>
                         </InputAdornment>
                         ),    }}
@@ -201,19 +192,33 @@ export default function Login(props: any) {
                   Max Length Exceed
                 </FormHelperText>
               )}
-              <Button
+             
+            {isForgetPassword ?  <Button
                 fullWidth
                 variant="contained"
                 type="submit"
                 className={classes.submit}
-                onClick={(e) => {
-                  isForgetPassword ? forgotPassword() : handleOnClick(e);
-                }}
+                // onClick={(e) => {forgotPassword()}}
               >
                 {isForgetPassword
                   ? Strings.LOGIN.SEND_OTP
                   : Strings.LOGIN.LOGIN}
-              </Button>
+              </Button> :
+               <Button
+               fullWidth
+               variant="contained"
+               type="submit"
+               className={classes.submit}
+               // onClick={(e) => {
+               //   isForgetPassword ? forgotPassword() : handleOnClick(e);
+               // }}
+             >
+               {isForgetPassword
+                 ? Strings.LOGIN.SEND_OTP
+                 : Strings.LOGIN.LOGIN}
+             </Button>
+              
+              }
               {isForgetPassword ? (
                 <Typography
                   component={"div"}

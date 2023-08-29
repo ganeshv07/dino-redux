@@ -41,9 +41,11 @@ const useStyles = makeStyles((_theme) => createStyles({
     justifyContent: 'center'
   },
   dinoLogo: {
+    width: '120px',
+    height: '45px',
     position: 'absolute',
     top: '50px',
-    left: '70px'
+    left: '60px'
   },
   logo: {
     height: 73,

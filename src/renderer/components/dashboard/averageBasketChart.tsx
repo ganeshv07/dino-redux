@@ -1,16 +1,11 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import * as React from "react";
-import { useEffect, useState } from "react";
-import {
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  Bar,
-  CartesianGrid,
-  BarChart,
-  ResponsiveContainer,
-} from "recharts";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { XAxis, YAxis, Tooltip, Legend, Bar, CartesianGrid, BarChart, ResponsiveContainer } from "recharts";
 import useStyles from "./averageBasketChartStyles";
 
 const data = [
@@ -54,6 +49,12 @@ const data = [
 export default function AverageBasketChart(props: any) {
   const classes = useStyles(props);
 
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
+  };
+
  
 
   return (
@@ -64,14 +65,31 @@ export default function AverageBasketChart(props: any) {
             <Typography component="span" className={classes.ChartLabelText}>
               {"Total Sales"}
             </Typography>
+            <FormControl sx={{ m: 1, minWidth: 120 }} className={classes.salesDropdowncontainer}>
+        <Select
+          className={classes.salesDropdown}
+          value={age}
+          onChange={handleChange}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          <MenuItem value="">
+            <em>This Week</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+
           </Box>
           
-          <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={data}>
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={data} >
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip cursor={{fill: '#fff'}} />
-              <Bar dataKey="pv" fill="#ebebeb" radius={[10, 10, 0, 0]} />
+              <Bar dataKey="pv"  barSize={20} fill="#ebebeb" radius={[10, 10, 0, 0]} />
             </BarChart>
             </ResponsiveContainer>
         </Box>

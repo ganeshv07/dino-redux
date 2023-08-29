@@ -6,15 +6,15 @@ fileignoreconfig:
 - filename: src/renderer/components/constants/strings.tsx
   checksum: 65fe2b0e3a480b1bded4323fabc1068ae38c1131c7c4bd01abf88d3422003efd
 - filename: src/renderer/components/dashboard/averageBasketChart.tsx
-  checksum: f6d3a1456dd122176f4c68fd3b6937c9fa27068710827b1afe2ed05aebd1241d
+  checksum: 98579bd3f85f291ee8bf4a7d012b81b8fe99ac9ad635e4050167cf0f36aa7dca
 - filename: src/renderer/components/dashboard/historicalDataChart.tsx
   checksum: d0f9da2e5b9cb9ac5429c0e10d1d4163aa1c0bcde9f174fb5cee6dd6f70d5d55
 - filename: src/renderer/components/dashboard/hotDeals.tsx
   checksum: cf01063c57c6594c46c57dc0ac7e6476720ecf484557fcf2a0f9e200477aa7ee
 - filename: src/renderer/components/forgotPassword/forgotPassword.tsx
-  checksum: c93e80f903fbd287cf9695f12898ddd65a971e46f41bcc495b70dad86c1bc061
+  checksum: eb8b5ef7d3d02b64acca9d9592f02aa0c25013706849e4ea8cf742dd06107697
 - filename: src/renderer/components/login/login.tsx
-  checksum: 14f7927f74e77e965090d7b07e4b2ead7da16cfe21675c05a0ec3e3b326ec9f5
+  checksum: d4dd58f96e5d04b1acd9b57c4e2d031022047c83ff1f49d901e02aa19438d49e
 - filename: src/renderer/components/registration/registration.tsx
   checksum: 6d8c48a07ac9ece82da564664c32acc055f1090eede9ea794b7ece16dc16d601
 - filename: src/renderer/components/registration/registrationForms.tsx

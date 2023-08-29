@@ -31,7 +31,7 @@ export default function HotDeals(props: any) {
               {"Hot Deals"}
             </Typography>
           </Box>
-          <ImageList sx={{ width: 400, height: 230 }} cols={3} gap={5} rowHeight={125}>
+          <ImageList sx={{ width: 400, height: 230 }} cols={4} gap={25} rowHeight={80}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img

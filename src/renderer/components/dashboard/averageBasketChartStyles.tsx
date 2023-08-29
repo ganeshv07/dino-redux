@@ -33,7 +33,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         ChartSubHeading: {
             padding: '8px',
-            textAlign: 'center'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'end'
+            // textAlign: 'center'
         },
         ChartLabelText: {
             fontSize: '24px',
@@ -41,6 +44,19 @@ const useStyles = makeStyles((theme: Theme) =>
             fontFamily: 'Gotham',
             color: '#fe5850'
         },
+        salesDropdowncontainer: {
+            position: 'absolute',
+            top: 40,
+            right: 0,
+            zIndex: 9999
+        },
+        salesDropdown: {
+            color: '#0f293a',
+            '& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input': {
+                padding:'4px !important',
+            },
+          
+        }
        
     })
 );

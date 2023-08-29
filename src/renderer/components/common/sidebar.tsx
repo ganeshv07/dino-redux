@@ -12,6 +12,8 @@ import { useNavigate } from "react-router";
 import { useLocation } from 'react-router-dom';
 import useStyles from './sidebarStyles';
 const DinoLogo = require('../../assets/images/Dino.png');
+const HomeLogo = require('../../assets/images/home.png');
+
 
 
 const newLocal = "pink";
@@ -162,7 +164,7 @@ export default function PermanentDrawerRight(props:any) {
                            
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.HOME ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.HOME); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-dashboard'}`} />
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-batch'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.HOME} />
                                 </ListItem>
                             

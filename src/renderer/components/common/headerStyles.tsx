@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flexDirection: 'column'
   },
   notificationIcon: {
+    width: '30px',
     color: '#0e4061',
     marginRight: '15px',
   },
@@ -128,8 +129,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
   },
   logo: {
-    height: 50,
-    width: 157,
+    height: 45,
+    width: 120,
     cursor: 'pointer'
   },
   menuButton: {
@@ -224,6 +225,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 
   },
+  profileIcon: {
+    fontSize: '2.5rem'
+  },
   centerDetailsDropDown: {
     margin: '0px 10px',
     textAlign: 'left',
@@ -290,6 +294,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   sectionDesktop: {
     // display: 'none',
+    marginRight: '30px',
     [theme.breakpoints.up('md')]: {
       display: 'flex'
     },

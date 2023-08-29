@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { Cell,  Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { Cell,  Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import useStyles from './inventoryChartStyles';
 
 export default function Inventory(props:any) {
@@ -35,6 +35,7 @@ export default function Inventory(props:any) {
               <Grid item xs={7}>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart >
+                <Tooltip />
                   <Pie
                     startAngle={360}
                     endAngle={0}

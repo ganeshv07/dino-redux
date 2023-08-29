@@ -1,3 +1,4 @@
+import { red } from '@material-ui/core/colors';
 import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((_theme) => createStyles({
@@ -46,9 +47,11 @@ const useStyles = makeStyles((_theme) => createStyles({
     width: 280
   },
   dinoLogo: {
+    width: '120px',
+    height: '45px',
     position: 'absolute',
     top: '50px',
-    left: '70px'
+    left: '60px'
   },
   
   login_bg: {
@@ -95,7 +98,7 @@ const useStyles = makeStyles((_theme) => createStyles({
     flexDirection: 'column'
   },
   TitleContainer: {
-    paddingBottom: '20px',
+    paddingTop: '20px',
     '& h2':{
       margin: 0
     }
@@ -114,6 +117,15 @@ const useStyles = makeStyles((_theme) => createStyles({
     },
     '& .MuiOutlinedInput-root .MuiOutlinedInput-input': {
       height: '1em',
+    },
+    '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+       color: '#000000',
+    },
+    '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#fe5850'
+    },
+    '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#fe5850'
     }
   },
   PasswordInput: {
@@ -123,8 +135,15 @@ const useStyles = makeStyles((_theme) => createStyles({
     },
     '& .MuiOutlinedInput-root .MuiOutlinedInput-input': {
       height: '1em',
-    }
-
+    },
+    '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+      color: '#000000',
+   },
+  },
+  passwordIcon: {
+    color: '#fe5850',
+    fontSize: '22px',
+    cursor: 'pointer'
   },
   customInputLabel: {
     "& legend": {

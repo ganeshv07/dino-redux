@@ -1,11 +1,15 @@
 import * as React from "react";
-import { CssBaseline, FormHelperText, Grid, Paper, Button, Typography, Box, } from "@material-ui/core";
+import { CssBaseline, FormHelperText, Grid, Paper, Button, Typography, Box,TextField } from "@material-ui/core";
 import { useForm } from 'react-hook-form';
 import Footer from '../common/footer';
 import OtpScreen from "./otpScreen";
 import OtpInput from "react-otp-input";
 import useStyles from "./forgotPasswordstyles";
 import Strings from "../constants/strings";
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from "react-router-dom";
 
 let Login_bg = require("../../assets/images/login_bg.png");
@@ -16,22 +20,55 @@ const theme = {
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
 };
 
+interface IChangePassword {
+  oldPassword: string;
+  newPassword: string;
+}
+
 export default function ForgotPassword(props: any) {
   const classes = useStyles(theme);
   const navigate = useNavigate();
-  const { register, handleSubmit, watch, formState: { errors } } = useForm()
+  const { register, watch, formState: { errors } } = useForm()
   const [isOtpVerified, setisOtpVerified] = React.useState(false);
   const [isVisibleCounter, handleCounterVisibility] = React.useState(false);
   const { primaryUser, onVerifyOtp, handleOpenOtpModel, action } = props;
   const [otp, setOtp] = React.useState("");
 
-  const onSubmit = (data:any) => {
-    console.log(data);
-  }
+  const initialState = {
+    newPassword: '',
+    confirmPassword: '',
+    newPasswordView: false,
+    confirmPasswordView: false
+};
 
-  const closeOtpModel = () => {
-    handleOpenOtpModel(false);
-  };
+function reducer(appState:any, { field, value }:any) { //we didn't define any special actions but we are directly returning the state value
+    return {
+        ...appState,
+        [field]: value
+    };
+}
+
+const [state, setState] = React.useReducer(reducer, initialState);
+
+const changePassword = () => {
+  let payloadData = {} as IChangePassword;
+  payloadData.oldPassword = state.oldPassword;
+  payloadData.newPassword = state.newPassword;
+  navigate('/');
+
+  
+};
+
+const handleSubmit = () => {
+  // if (state.newPassword.trim().length < 6 || state.confirmPassword.trim().length < 6) {
+  //     dispatch(app_actions.toast_actions.errorToast(Strings.CONFIRM_ALERT.PASSWORD_SIX));
+  // } else if (state.newPassword !== state.confirmPassword) {
+  //     dispatch(app_actions.toast_actions.errorToast(Strings.CONFIRM_ALERT.PASSWORD_MATCH));
+  // } else {
+  //     changePassword();
+  // }
+};
+
 
   const handleVerify = (otp: any) => { setisOtpVerified(true);};
 
@@ -48,6 +85,19 @@ export default function ForgotPassword(props: any) {
   React.useEffect(() => {
     sendOTP();
   }, []);
+
+const handleMouseDownPassword = (event:any) => {
+    event.preventDefault();
+};
+
+  const handleViewPassword = (element:any) => {
+    const copyState = { ...state };
+    setState({ field: element, value: !copyState[element] });
+};
+
+const onChangeInput = (e:any) => {
+    setState({ field: e.target.name, value: e.target.value.trim() });
+};
 
   return (
     <div>
@@ -73,13 +123,76 @@ export default function ForgotPassword(props: any) {
             </p>
             </Box>
            { isOtpVerified ? <Box className={classes.changePasswordcontainer}>
-            <form id='form' className={`${classes.changePasswordForm}`} onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" {...register("newpassword",{ required : true, maxLength: 10 })} className={classes.Input} placeholder=' new password' /> 
-                    {errors.newpassword?.type === "required" && <FormHelperText className={classes.errorText} >new Password is required</FormHelperText>}
-                    {errors.newpassword?.type === "maxLength" && <FormHelperText className={classes.errorText}>Max Length Exceed</FormHelperText>}
-                     <input type="text" {...register("confirmpassword",{ required : true, maxLength: 10 })} className={classes.Input} placeholder='confirm password' /> 
-                    {errors.confirmpassword?.type === "required" && <FormHelperText className={classes.errorText}>confirm Password is required</FormHelperText>}
-                    {errors.confirmpassword?.type === "maxLength" && <FormHelperText className={classes.errorText}>Max Length Exceed</FormHelperText>}
+           <Grid container className={classes.resetContent} >
+           <Grid item  >
+                        <TextField
+                            id='new_pass-input'
+                            variant='outlined'
+                            name='newPassword'
+                            value={state.newPassword}
+                            className={classes.inputLabel}
+                            type={state.newPasswordView ? 'text' : 'password'}
+                            placeholder={'New Password'}
+                            inputProps={{ 'aria-label': 'newPassword', name: 'newPassword' }}
+                            autoComplete='off'
+                            onChange={onChangeInput}
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            InputProps={{    
+                              autoComplete: "off",
+                              endAdornment: (
+                               <InputAdornment position="end">
+                                 <IconButton
+                                   className={classes.passwordIcon}
+                                   aria-label="toggle password visibility"
+                                   onClick={() => handleViewPassword('newPasswordView')}
+                                   onMouseDown={handleMouseDownPassword}
+                                   edge="end"
+                                 >
+                                   {state.newPasswordView ? <VisibilityOff className={classes.passwordIcon} /> : <Visibility  className={classes.passwordIcon}/>}
+                                 </IconButton>
+                               </InputAdornment>
+                               ),    }}
+                        />
+                    </Grid>
+                    <Grid item >
+                        <TextField
+                            id='confirm_pass-input'
+                            variant='outlined'
+                            name='confirmPassword'
+                            value={state.confirmPassword}
+                            className={classes.inputLabel}
+                            type={state.confirmPasswordView ? 'text' : 'password'}
+                            placeholder={'Confirm New Password'}
+                            inputProps={{ 'aria-label': 'confirmPassword', name: 'confirmPassword' }}
+                            autoComplete='off'
+                            onChange={onChangeInput}
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            InputProps={{
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <IconButton
+                                    className={classes.passwordIcon}
+                                    aria-label="toggle password visibility"
+                                    onClick={() => handleViewPassword('confirmPasswordView')}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                  >
+                                    {state.confirmPasswordView ? <VisibilityOff  className={classes.passwordIcon} /> : <Visibility className={classes.passwordIcon} />}
+                                  </IconButton>
+                                </InputAdornment>
+                                ),
+                              
+                            }}
+                        />
+                    </Grid>
+
+            </Grid>
+
+           
                     <Button
                     fullWidth
                     variant='contained'
@@ -88,9 +201,8 @@ export default function ForgotPassword(props: any) {
                     {Strings.FORGOT_PASSWORD.UPDATE}
                   </Button>
                  
-                </form>
            </Box> 
-           : <Box>
+           : <Box className={classes.otpBoxContainer}>
               <Grid className={classes.otpMain}>
                 <OtpInput
                   value={otp}
@@ -103,24 +215,9 @@ export default function ForgotPassword(props: any) {
                 />
               </Grid>
               <div className={classes.otpFooter}>
-                <Button
-                  className={classes.cancelButton}
-                  onClick={() => navigate("/")}
-                >
-                  {Strings.FORGOT_PASSWORD.CANCEL_BUTTON}
-                </Button>
-                {
                   <Button
-                    variant="contained"
-                    className={classes.blueButton}
-                    onClick={resendOtp}
-                  >
-                    {Strings.FORGOT_PASSWORD.RESEND_OTP}
-                  </Button>
-                }
-                {
-                  <Button
-                    className={classes.uploadButton}
+                    fullWidth
+                    className={classes.verifyButton}
                     variant="contained"
                     color="primary"
                     disabled={!otp || otp.length !== 4}
@@ -128,7 +225,21 @@ export default function ForgotPassword(props: any) {
                   >
                     {Strings.FORGOT_PASSWORD.VERIFY}
                   </Button>
-                }
+                  </div>
+              <div className={classes.otpFooterLabel}>
+                <Button
+                  className={classes.cancelButton}
+                  onClick={() => navigate("/")}
+                >
+                  {Strings.FORGOT_PASSWORD.CANCEL_BUTTON}
+                </Button>
+                
+                  <Button
+                    className={classes.cancelButton}
+                    onClick={resendOtp}
+                  >
+                    {Strings.FORGOT_PASSWORD.RESEND_OTP}
+                  </Button>
               </div>
             </Box> }
           </Grid>

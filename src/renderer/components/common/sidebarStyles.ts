@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
         '&.MuiListItem-root': {
             borderLeft: '4px solid #0052a8',
-            backgroundColor: '#0054a5'
+            backgroundColor: '#0e4061'
         }
     },
     transparent: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
         '& .MuiTypography-body1': {
             fontFamily: 'PTSans-Regular',
-            color: '#0054a5',
+            color: '#0e4061',
             fontWeight: 'bold'
         },
         '& .MuiListItem-root': {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
                     color: '#0052a8'
                 },
                 '&.MuiTypography-body1': {
-                    color: '#0054a5'
+                    color: '#0e4061'
                 }
             }
         }
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         paddingRight: '10px'
     },
     default: {
-        color: '#0054a5',
+        color: '#0e4061',
         fontSize: '10px',
         fontFamily: 'PTSans-Bold',
         textAlign: 'center'

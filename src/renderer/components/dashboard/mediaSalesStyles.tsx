@@ -23,22 +23,33 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#fe5850'
         },
         tableItem: {
-            padding: '8px 16px 8px 16px',
+            padding: '4px 16px 4px 16px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
         },
         tableItemLabelText : {
-            fontSize: '1.25rem',
+            fontSize: '1.1rem',
             fontFamily: 'Gotham',
             color:' #0e4061'
         },
         tableItemPriceText : {
-            fontSize: '1.25rem',
+            fontSize: '1.1rem',
             fontWeight: 'bold',
             fontFamily: 'Gotham',
             color: '#0e4061'
 
+        },
+
+        tableRupeeItem: {
+            padding: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'end'
+        },
+
+        rupeeImage: {
+        width: '50px'
         }
     })
 );

@@ -356,18 +356,7 @@ export default function Header(props:any) {
                 color='inherit'
                 className={classes.Profile}
               >
-                <AccountCircle />
-                <Grid container className={classes.name}>
-                  <Grid item xs={10}>
-                    <Typography component='p' className={classes.labName} title={userName}>
-                      {userName}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={2} className={classes.flexEnd}>
-                    <Typography component='span' className={`${'icon-down-arrow'} ${classes.logoutArrowPa} ${classes.logoutArrow}`}>
-                    </Typography>
-                  </Grid>
-                </Grid>
+              <AccountCircle className={classes.profileIcon}/>
               </IconButton>
             </div>
           </Toolbar>
