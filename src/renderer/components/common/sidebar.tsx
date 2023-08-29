@@ -164,44 +164,44 @@ export default function PermanentDrawerRight(props:any) {
                            
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.HOME ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.HOME); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-batch'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-home'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.HOME} />
                                 </ListItem>
                             
                         
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.BILLING ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.BILLING); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-batch'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-billing'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.BILLING} />
                                 </ListItem>
                           
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-history'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-manage-inventory'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.INVENTORY_MANAGEMENT} />
                                 </ListItem>
 
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.REPORTS ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.REPORTS); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-history'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-reports'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.REPORTS} />
                                 </ListItem>
 
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.ACCOUNTS ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.ACCOUNTS); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-history'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-accounts'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.ACCOUNTS} />
                                 </ListItem>
 
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.PROMOTIONS ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.PROMOTIONS); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-rupee'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-promotions'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.PROMOTIONS} />
                                 </ListItem>
 
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.SETTINGS ? classes.active : classes.transparent}
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.SETTINGS); }}>
-                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-history'}`}></Typography>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-settings'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.SETTINGS} />
                                 </ListItem>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import '../renderer/assets/styles/base.scss';
+import '../renderer/assets/styles/main.scss';
 import { initReduxStore, persistor, store } from './store/index';
 const { Provider } = require('react-redux');
 import { PersistGate } from 'redux-persist/lib/integration/react';
