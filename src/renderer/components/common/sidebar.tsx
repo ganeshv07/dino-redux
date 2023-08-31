@@ -62,14 +62,17 @@ export default function PermanentDrawerRight(props:any) {
                 navigate('/billing');
                 closeSideBar();
                 break;
-
+            case AppConstants.ACTIVE_MODULE.TABLE_MANAGEMENT:
+                navigate('/table');
+                closeSideBar();
+                break;    
             case AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT:
                 navigate('/inventory');
                 closeSideBar();
                 break;
 
             case AppConstants.ACTIVE_MODULE.REPORTS:
-                dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.MIS_REPORTS));
+                dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.REPORTS));
                 navigate('/reports');
                 closeSideBar();
                 break;
@@ -105,6 +108,9 @@ export default function PermanentDrawerRight(props:any) {
             case '/billing':
                 dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.BILLING));
                 break;
+            case '/table':
+                dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.BILLING));
+                break;    
             case '/inventory':
                 dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT));
                 break;
@@ -173,6 +179,12 @@ export default function PermanentDrawerRight(props:any) {
                                     button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.BILLING); }}>
                                     <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-billing'}`}></Typography>
                                     <ListItemText primary={Strings.HEADER.BILLING} />
+                                </ListItem>
+
+                                <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.TABLE_MANAGEMENT ? classes.active : classes.transparent}
+                                    button onClick={() => { handleMenuSelection(AppConstants.ACTIVE_MODULE.TABLE_MANAGEMENT); }}>
+                                    <Typography component='span' className={`${classes.sideMenuIcon} ${'icon-billing'}`}></Typography>
+                                    <ListItemText primary={Strings.HEADER.TABLE_MANAGEMENT} />
                                 </ListItem>
                           
                                 <ListItem className={reqActiveSidebar === AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT ? classes.active : classes.transparent}

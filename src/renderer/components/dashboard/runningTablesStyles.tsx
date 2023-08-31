@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         tableContainer: {
+            padding: '10px 0px',
             width: '100%',
             position: 'relative',
             alignItems: 'center',

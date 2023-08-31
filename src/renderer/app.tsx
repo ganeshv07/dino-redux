@@ -7,6 +7,7 @@ import Header from './components/common/header';
 import Logout from './components/login/logout';
 import Billing from './components/billing/billing';
 import NoDataFound from './components/common/noDataFound';
+import TableManagement from './components/table/tableManagement';
 
 export default function App() {
 
@@ -28,6 +29,7 @@ export default function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/billing" element={<Billing/>} />
+        <Route path="/table" element={<TableManagement/>} />
         <Route path="/inventory" element={<NoDataFound/>} />
         <Route path="/reports" element={<NoDataFound/>} />
         <Route path="/accounts" element={<NoDataFound/>} />

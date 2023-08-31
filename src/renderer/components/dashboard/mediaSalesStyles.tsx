@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         tableContainer: {
+            padding: '10px 0px',
             width: '100%',
             position: 'relative',
             alignItems: 'center',
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
 
         tableRupeeItem: {
-            padding: '20px',
+            padding: '10px 10px 0px 0px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'end'

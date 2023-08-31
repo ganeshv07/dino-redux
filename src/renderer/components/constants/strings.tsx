@@ -56,6 +56,7 @@ const Strings = {
         DASHBOARD: 'Dashboard',
         HOME: 'Home',
         BILLING: 'Billing',
+        TABLE_MANAGEMENT: 'Table Management',
         INVENTORY_MANAGEMENT: 'Inventory Management',
         REPORTS: 'Reports',
         ACCOUNTS: 'Accounts',
@@ -86,6 +87,14 @@ const Strings = {
         REGISTRATION_TRENDS: 'Registration Trends'
     
       },
+
+      TABLE_MANAGEMENT: {
+        TABLE_MANAGEMENT : 'Table Management',
+        FIRST_FLOOR: '1st Floor',
+        SECOND_FLOOR: '2nd Floor',
+        THIRD_FLOOR: '3rd Floor',
+
+      }
 
 
 };
