@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Strings from '../constants/strings';
 import _ from '../../utils/lodash';
 import TabPanel from '../common/tabPanel';
+import MergeTabels from './mergeTables';
 // import TestPrice from '../testPrice/testPrice';
 // import TestList from './testList';
 import useStyles from './tableManagementStyles';
@@ -36,6 +37,9 @@ export default function TableManagement(props:any) {
     const classes = useStyles(props);
     const [tabIndex, setTabIndex] = useState(0);
     const [, handleStatus] = useState(undefined);
+    const [isMergeTabels, setIsMergeTabels] = useState(false)
+    const [isOpenAddEditModel, handleOpenAddEditModel] = React.useState(false);
+
 
     //Handle active tab
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
@@ -54,6 +58,8 @@ export default function TableManagement(props:any) {
         }
     };
 
+
+
     //render UI
     return (
         <div className={classes.maindiv}>
@@ -71,7 +77,7 @@ export default function TableManagement(props:any) {
                         <Grid item xs={2} className={classes.addContainer}>
                   <Button variant='contained'
                     className={classes.mergeBtn}
-                    // onClick={() => { handleOpenAddEditModel(true); setIsNewBatch(true); addNew(); }}
+                     onClick={() => { handleOpenAddEditModel(true); }}
                   >{'Merge Tabels'}</Button>
                 
               </Grid>
@@ -141,6 +147,8 @@ export default function TableManagement(props:any) {
        </Grid>
         </Grid>
             </div>
+
+            {isOpenAddEditModel && < MergeTabels   handleOpenAddEditModel={handleOpenAddEditModel} /> }
 
         </div >
     );
