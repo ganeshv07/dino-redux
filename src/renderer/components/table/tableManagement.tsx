@@ -6,8 +6,7 @@ import Strings from '../constants/strings';
 import _ from '../../utils/lodash';
 import TabPanel from '../common/tabPanel';
 import MergeTabels from './mergeTables';
-// import TestPrice from '../testPrice/testPrice';
-// import TestList from './testList';
+import ShiftIn from './shiftIn';
 import useStyles from './tableManagementStyles';
 
 const setProps = (index: any) => {
@@ -39,6 +38,8 @@ export default function TableManagement(props:any) {
     const [, handleStatus] = useState(undefined);
     const [isMergeTabels, setIsMergeTabels] = useState(false)
     const [isOpenAddEditModel, handleOpenAddEditModel] = React.useState(false);
+    const [isOpenShiftInModel, handleOpenShiftInModel] = React.useState(true);
+
 
 
     //Handle active tab
@@ -149,6 +150,8 @@ export default function TableManagement(props:any) {
             </div>
 
             {isOpenAddEditModel && < MergeTabels   handleOpenAddEditModel={handleOpenAddEditModel} /> }
+
+            {isOpenShiftInModel && <ShiftIn handleOpenShiftInModel={handleOpenShiftInModel} />}
 
         </div >
     );
