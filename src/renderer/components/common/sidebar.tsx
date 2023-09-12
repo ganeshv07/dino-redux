@@ -109,7 +109,7 @@ export default function PermanentDrawerRight(props:any) {
                 dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.BILLING));
                 break;
             case '/table':
-                dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.BILLING));
+                dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.TABLE_MANAGEMENT));
                 break;    
             case '/inventory':
                 dispatch(app_actions.user_actions.activeSideBar(AppConstants.ACTIVE_MODULE.INVENTORY_MANAGEMENT));

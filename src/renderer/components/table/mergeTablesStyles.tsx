@@ -70,23 +70,15 @@ const genericStyles = makeStyles((appTheme: Theme) => createStyles({
     popupFooter: {
         display: 'flex',
         justifyContent: 'center',
-        padding: '15px',
+        padding: '4px',
         backgroundColor: '#fe3f3f'
     },
     saveButton: {
-        color: '#fff',
+        color: '#fff !important',
         fontSize: '13px',
         fontWeight: 'bold',
-        padding: '8px',
-        minWidth: '100px',
         width: 'auto',
-        backgroundColor: '#fe3f3f',
-        border: '2px solid #0054a5',
-        borderRadius: '18px',
-        '&:hover': {
-            boxShadow: '0 4px 6px 0 rgba(0, 72, 153, 0.2)',
-            backgroundColor: '#004899'
-        }
+        backgroundColor: '#fe3f3f !important',
     },
     titleText: {
         textAlign: 'center',
